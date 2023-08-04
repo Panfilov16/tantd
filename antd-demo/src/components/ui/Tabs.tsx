@@ -1,19 +1,21 @@
 import React from 'react';
 import { Tabs } from 'antd';
+import Search from './input-search';
 
 const arrs = ['Search', 'Rated'];
 
-const Tab: React.FC = (arrs) => (
+const Tab: React.FC = () => (
   <Tabs
     defaultActiveKey="1"
     centered
     items={new Array(2).fill(null).map((_, i) => {
       const id = String(i + 1);
       return {
-        label: `${arrs}`,
+        label: arrs[i],
         key: id,
-        children: `Content of Tab Pane ${id}`,
+        children: id === "1" ? <Search />: null,
       };
+      
     })}
   />
 );
